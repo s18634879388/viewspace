@@ -17,5 +17,28 @@
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
         p:defaultEncoding="UTF-8"
         p:maxUploadSize="5242880"></bean>
+    <!-- 配置freemarker视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer"
+        p:templateLoaderPath="/WEB-INF/ftl"
+        p:defaultEncoding="UTF-8">
+        <property name="freemarkerSettings">
+            <props>
+                <prop key="classic_compatible">true</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver"
+        p:order="5"
+        p:suffix=".ftl"
+        p:contentType="text/html;charset=utf-8"></bean>
+
+    <!-- 配置json视图解析器 -->
+    <bean id="namejson" class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"
+          p:contentType="text/html"
+          p:renderedAttributes="name"/>
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <property name="order" value="1" />
+    </bean>
 
 </beans>
