@@ -5,7 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="com.view.mapper.UserTestMapper">
 	<resultMap type="com.view.domain.UserTest" id="UserTestMap">
-		<id column="id" property="userId"/>
 
 		<result column="user_id" property="userId"/>
 		<result column="user_name" property="userName"/>
